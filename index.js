@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const uuid = require('uuid')
 app.use(express.json())
+app.use(express.static("public"))
 
 app.get('/videos', (_req, res) => {
     let returnVideos = videos.map(video => {
