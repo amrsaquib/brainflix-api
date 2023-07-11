@@ -11,6 +11,27 @@ router.get('/', (_req, res) => {
     res.json(returnVideos)
 })
 
+router.post('/', (req, res) => {
+    let newVideo = {
+        "id": uuid.v4(),
+        "title": "",
+        "channel": "",
+        "image": "",
+        "description": "",
+        "views": "0",
+        "likes": "0",
+        "duration": "4:20",
+        "video": "https://project-2-api.herokuapp.com/stream",
+        "timestamp": Date.now(),
+        "comments": []
+    }
+    newVideo.title = req.body.title
+    newVideo.channel = req.body.channel
+    newVideo.image = req.body.image
+    newVideo.description = req.body.description
+    videos.push(newVideo)
+    res.json(newVideo)
+})
 
 router.get('/:id', (req, res) => {
     let id = req.params.id
