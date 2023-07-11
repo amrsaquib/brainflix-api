@@ -1,6 +1,12 @@
 
 const express = require('express')
 const app = express()
+const cors = require('cors')
+require('dotenv').config()
+const {CORS_ORIGIN} = process.env
+app.use(cors({origin:CORS_ORIGIN}))
+app.use(express.json())
+app.use(express.static("public"))
 
 
 

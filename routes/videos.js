@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const videos = require('../data/videos.json')
 const uuid = require('uuid')
-router.use(express.json())
-router.use(express.static("public"))
+
 
 router.get('/', (_req, res) => {
     let returnVideos = videos.map(video => {
@@ -11,6 +10,7 @@ router.get('/', (_req, res) => {
     })
     res.json(returnVideos)
 })
+
 
 router.get('/:id', (req, res) => {
     let id = req.params.id
